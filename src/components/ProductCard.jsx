@@ -12,7 +12,7 @@ const ProductCard = ({ product, addToCart }) => {
 
       {/* Add to Cart button */}
       <button
-        data-testid={'product-' + product.id}
+        data-testid={`product-${product.id}`}
         onClick={() => addToCart(product)}
         disabled={!product.inStock} 
       >

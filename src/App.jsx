@@ -4,20 +4,20 @@ import DarkModeToggle from "./components/DarkModeToggle";
 import Cart from "./components/Cart";
 import "./App.css";
 
+
+export const sampleProducts = [
+  { id: 1, name: "Apple", price: "$1.00", category: "Fruits", inStock: true },
+  { id: 2, name: "Milk", price: "$2.50", category: "Dairy", inStock: true },
+  { id: 3, name: "Bread", price: "$1.50", category: "Bakery", inStock: true },
+  { id: 4, name: "Chicken", price: "$5.00", category: "Meat", inStock: false },
+];
 const App = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [cart, setCart] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
-  //sample products
-  const products = [
-    { id: 1, name: "Apple", price: "$1.00", category: "Fruits", inStock: true },
-    { id: 2, name: "Milk", price: "$2.50", category: "Dairy", inStock: true },
-    { id: 3, name: "Bread", price: "$1.50", category: "Bakery", inStock: true },
-    { id: 4, name: "Chicken", price: "$5.00", category: "Meat", inStock: false },
-  ];
-
+  
   const addToCart = (product) => {
-    setCart([...cart, product]);
+    setCart((prev) => [...prev, product]);
   };
 
   return (
@@ -43,7 +43,7 @@ const App = () => {
 
       {/* Product List */}
       <ProductList
-        products={products}
+        products={sampleProducts}
         selectedCategory={selectedCategory}
         addToCart={addToCart}
       />
